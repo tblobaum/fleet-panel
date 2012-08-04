@@ -1,0 +1,15 @@
+<tr class='<%= deploy.status %>'>
+  <td><%= deploy.time.toLocaleTimeString() %></td>
+  <td><%= deploy.drone %></td>
+  <td><%= deploy.status %></td>
+  <td>
+    <a href='<%= accountUrl %><%= deploy.repo %>'>
+      <%= deploy.repo %>
+    </a>
+  </td>
+  <td>
+    <a href='<%= accountUrl %><%= deploy.repo %>/commit/<%= deploy.commit %>'>
+      <%= deploy.commit.substr(0, 7) %>
+    </a>
+  </td>
+</tr>

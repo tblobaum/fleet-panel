@@ -1,0 +1,28 @@
+{
+  "name": "fleet-panel",
+  "version": "0.1.0",
+  "description": "realtime dashboard for fleet",
+  "main": "index.js",
+  "bin": {},
+  "directories": {},
+  "dependencies": {
+    "dnode": "~1.0.1",
+    "ejs": "~0.8.0",
+    "ecstatic": "~0.1.6",
+    "shoe": "0.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tblobaum/fleet-panel.git"
+  },
+  "homepage": "https://github.com/tblobaum/fleet-panel",
+  "keywords": [],
+  "author": {
+    "name": "Thomas Blobaum",
+    "email": "tblobaum@gmail.com",
+    "url": "https://github.com/tblobaum/"
+  },
+  "license": "MIT"
+}

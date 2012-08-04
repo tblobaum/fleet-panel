@@ -1,0 +1,40 @@
+<% Object.keys(ps).forEach(function (drone) { %>
+  <table class='table table-bordered table-condensed'>
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>pid</th>
+        <th>status</th>
+        <th>command</th>
+        <th>repo / commit</th>
+        <th>-</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Object.keys(ps[drone]).forEach(function (pid) { %>
+        <tr id='pid-<%= pid %>'>
+          <td><%= drone %></td>
+          <td><%= pid %></td>
+          <td id='pid-<%= pid %>-status'><%= ps[drone][pid].status %></td>
+          <td>
+            <code><%= ps[drone][pid].command.join(' ') %></code>
+          </td>
+          <td>
+            <a href='<%= accountUrl %><%= ps[drone][pid].repo %>'>
+              <%= ps[drone][pid].repo %>
+            </a>
+            /
+            <a href='<%= accountUrl %><%= ps[drone][pid].repo %>/commit/<%= ps[drone][pid].commit %>'>
+              <%= ps[drone][pid].commit.substr(0, 7) %>
+            </a>
+          </td>
+          <td>
+            <a class='label label-important' href='javascript:void(stopProcess("<%= drone %>", "<%= pid %>"))'>
+              stop 
+            </a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% }) %>

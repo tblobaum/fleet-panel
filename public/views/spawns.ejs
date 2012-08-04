@@ -1,0 +1,8 @@
+<tr class='<%= proc.status %>'>
+  <td><%= proc.time.toLocaleTimeString() %></td>
+  <td><%= proc.drone %></td>
+  <td><%= proc.id %></td>
+  <td>
+    <code><%= proc.command.join(' ') %></code>
+  </td>
+</tr>

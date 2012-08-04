@@ -1,0 +1,37 @@
+.deploy {
+  color : #3A87AD;
+  background : #D9EDF7 !important;
+  border-color : #BCE8F1;
+}
+
+.running,
+.spawned {
+  color : #468847;
+  background : #DFF0D8 !important;
+  border-color : #D6E9C6;
+}
+
+.stopped,
+.SIGTERM {
+  color : #C09853;
+  background : #FCF8E3 !important;
+  border-color : #FBEED5;
+}
+
+pre { 
+  background : #1e1e1e; 
+  color : #eee; 
+}
+
+.scroll {
+  min-height : 300px !important; 
+  max-height : 300px !important; 
+  overflow-y : scroll !important; 
+}
+
+tr.disabled td,
+tr.disabled:hover td {
+  color : #C09853;
+  background : #FCF8E3 !important;
+  border-color : #FBEED5;
+}

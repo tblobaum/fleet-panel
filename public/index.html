@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <title>fleet panel</title>
+    <link href='//twitter.github.com/bootstrap/assets/css/bootstrap.css' rel='stylesheet'>
+    <link href='//twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css' rel='stylesheet'>
+    <link href='/style.css' rel='stylesheet'>
+  </head>
+  <body>
+    <br />
+
+    <div class='container'>
+      <div class='row'>
+
+        <div class='span10 offset1'>
+          <h1>Fleet Panel <span id='info' class='label'></span></h1>
+          <hr />
+        </div>
+
+        <div class='span10 offset1'>
+          <!-- <h3>Drones</h3> -->
+          <div id='ps'></div>
+          <hr />
+        </div>
+
+        <div class='span5 offset1'>
+          <h3>
+            Spawns / Exits
+            <small>
+              <a href='javascript:void(clearSpawns())'>
+                clear
+              </a>
+            </small>
+          </h3>
+          <div class='row-fluid'>
+            <div class='span12 scroll'>
+              <table class='table'>
+                <tbody id='monitor-spawn'></tbody>
+              </table>
+            </div>
+          </div>
+          <hr />
+        </div>
+
+        <div class='span5'>
+          <h3>Deploys</h3>
+          <div class='row-fluid'>
+            <div class='span12 scroll'>
+              <table class='table'>
+                <tbody id='monitor-deploy'></tbody>
+              </table>
+            </div>
+          </div>
+          <hr />
+        </div>
+
+        <div class='span10 offset1'>
+          <h3>
+            Stdio
+            <small>
+              <a href='javascript:void(clearStdio())'>
+                clear
+              </a>
+            </small>
+          </h3>
+          <pre class='scroll' id='monitor-stdio'></pre>
+          <hr />
+        </div>
+
+        <div class='span10 offset1'>
+          <h3>Settings</h3> <br /> 
+          <form class=''>
+            <label for='accountUrl'>Account Url</label>
+            <input type='text' id='accountUrl' class='input-xlarge' value='https://github.com/tblobaum/'>
+          </form>
+          <hr />
+        </div>
+
+      </div>
+      <div class='row'>
+        <div class='span10 offset1'>
+          <p class='pull-left'>MIT License</p>
+          <p class='pull-right'>Made with love, by Thomas Blobaum</p>
+        </div>
+      </div>
+    </div>
+    <script src='./bundle.js'></script>
+  </body>
+</html>
