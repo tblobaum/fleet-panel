@@ -2,15 +2,13 @@
 
 # Install
 
-`npm install fleet-panel`
+`npm install -g fleet-panel`
 
 # Run
 
-`make browser`
+`fleet-panel <listen> <fleet hub host> <fleet hub port>`
 
-and then
-
-`node .`
+e.g. `fleet-panel 3000 localhost 9000`
 
 # License
 

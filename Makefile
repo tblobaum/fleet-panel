@@ -1,3 +1,3 @@
 browser:
-	node build.js
+	./bin/build
 	browserify public/entry.js -o public/bundle.js
