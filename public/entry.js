@@ -1,4 +1,4 @@
-var panel = require('./fleet-panel')({ secret : 'beepboop' })
+var panel = require('./fleet-panel')()
   , views = require('./views')
   , EventEmitter = require('events').EventEmitter
   , ejs = require('ejs')

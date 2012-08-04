@@ -7,6 +7,9 @@ var http = require('http')
 
 server.listen(process.argv[2] || 3000)
 
+// if you are running fleet-panel from the 
+// same origin as a fleet-hub then this is not needed
+
 var sock = shoe(function (stream) {
   dnode.connect(process.argv[4] || 9000, process.argv[3] || 'localhost', function (remote, conn) {
     var d = dnode(remote)

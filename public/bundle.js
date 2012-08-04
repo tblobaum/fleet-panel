@@ -376,6 +376,12 @@ module.exports = function (opts) {
 
 function Panel (opts) {
   var self = this
+  opts = opts || {}
+
+  if (!opts.secret) {
+    opts.secret = prompt('Enter the hub password', 'beepboop')
+  }
+
   self.secret = opts.secret || ''
   self.host = opts.host || 'localhost'
   self.port = opts.port || 80
@@ -5111,7 +5117,7 @@ exports.json = function(obj){
   return JSON.stringify(obj);
 };});
 
-require.define("/public/entry.js",function(require,module,exports,__dirname,__filename,process){var panel = require('./fleet-panel')({ secret : 'beepboop' })
+require.define("/public/entry.js",function(require,module,exports,__dirname,__filename,process){var panel = require('./fleet-panel')()
   , views = require('./views')
   , EventEmitter = require('events').EventEmitter
   , ejs = require('ejs')

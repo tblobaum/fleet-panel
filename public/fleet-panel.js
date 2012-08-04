@@ -10,6 +10,12 @@ module.exports = function (opts) {
 
 function Panel (opts) {
   var self = this
+  opts = opts || {}
+
+  if (!opts.secret) {
+    opts.secret = prompt('Enter the hub password', 'beepboop')
+  }
+
   self.secret = opts.secret || ''
   self.host = opts.host || 'localhost'
   self.port = opts.port || 80
