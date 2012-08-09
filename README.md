@@ -10,7 +10,14 @@
 
 e.g. `fleet-panel --port=3000 --hub=localhost:9000 --secret=beepboop`
 
-`port` defaults to `3000` and `--hub` is required
+Options:
+`--port` defaults to `3000`
+
+`--hub` is required
+
+`--secret` the password for the specified fleet hub, defaults to `''`
+
+`--account` (optional) base account (e.g. github) url where git repositories deployed to the hub can be accessed. This will be used to link commits and repos from fleet-panel
 
 Note: `process.cwd()` will be checked for a `fleet-panel.json` file which can be used to specify the configuration.
 
@@ -18,7 +25,8 @@ Note: `process.cwd()` will be checked for a `fleet-panel.json` file which can be
 {
   "port" : 3000,
   "hub" : "localhost:9000",
-  "secret" : "beepboop"
+  "secret" : "beepboop",
+  "account" : "https://github.com/tblobaum/"
 }
 ```
 
