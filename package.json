@@ -1,18 +1,19 @@
 {
   "name": "fleet-panel",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "realtime dashboard for fleet",
   "main": "index.js",
   "bin": {
-    "fleet-panel" : "./bin/start",
-    "fleet-panel-build" : "./bin/build"
+    "fleet-panel": "./bin/start",
+    "fleet-panel-build": "./bin/build"
   },
   "directories": {},
   "dependencies": {
     "dnode": "~1.0.1",
     "ejs": "~0.8.0",
     "ecstatic": "~0.1.6",
-    "shoe": "0.0.3"
+    "shoe": "0.0.3",
+    "figc": "0.0.2"
   },
   "devDependencies": {},
   "scripts": {},
