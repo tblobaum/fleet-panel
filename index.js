@@ -19,7 +19,6 @@ shoe(function (stream) {
       else {
         result.account = config.account
         d = dnode(result)
-        console.log(d, result)
         d.pipe(stream).pipe(d)
       }
     })
