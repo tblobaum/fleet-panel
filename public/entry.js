@@ -7,6 +7,14 @@ var panel = require('./fleet-panel')()
   , deploysTemplate = ejs.compile(views['deploys.ejs'])
   , processes = {}
 
+window.clearSpawns = function () {
+  document.getElementById('monitor-spawn').innerHTML = ''
+}
+
+window.clearStdio = function () {
+  document.getElementById('monitor-stdio').innerHTML = ''
+}
+
 panel.on('remote', function (hub) {
   var ports = document.getElementById('info')
   ports.textContent = 'hub:' + hub.ports.control + ' // git port:' + hub.ports.git 
@@ -15,7 +23,7 @@ panel.on('remote', function (hub) {
   monitorHub()
 })
 
-window.stopProcess = function (drone, pid) {
+function stopProcess (drone, pid) {
   panel.hub.stop({
       drone : drone
     , drones : Object.keys(processes)
@@ -23,7 +31,7 @@ window.stopProcess = function (drone, pid) {
   }, function () {})
 }
 
-window.processList = function () {
+function processList () {
   var em = new EventEmitter
   
   em.on('data', function (key, procs) {
@@ -33,14 +41,14 @@ window.processList = function () {
   em.on('end', function () {
     document.getElementById('ps').innerHTML = psTemplate({ 
         ps : processes
-      , accountUrl : document.getElementById('accountUrl').value 
+      , accountUrl : panel.hub.account
     })
   })
   
   panel.hub.ps(em.emit.bind(em))
 }
 
-window.monitorHub = function () {
+function monitorHub () {
   var em = new EventEmitter
     , stdio = document.getElementById('monitor-stdio')
     , deployElement = document.getElementById('monitor-deploy')
@@ -51,7 +59,7 @@ window.monitorHub = function () {
     deploy.status = deploy.status ||'deploy'
     appendText(deploysTemplate({ 
         deploy : deploy
-      , accountUrl : accountUrl.value 
+      , accountUrl : panel.hub.account
     }), deployElement)
   })
 
@@ -60,7 +68,7 @@ window.monitorHub = function () {
     proc.status = proc.status ||'spawned'
     prepend(spawnsTemplate({ 
         proc : proc
-      , accountUrl : accountUrl.value 
+      , accountUrl : panel.hub.account
     }), spawn)
     enableProcess(proc)
   })
@@ -70,7 +78,7 @@ window.monitorHub = function () {
     proc.status = proc.status || sig ? sig : 'stopped'
     prepend(spawnsTemplate({ 
         proc : proc
-      , accountUrl : accountUrl.value 
+      , accountUrl : panel.hub.account
     }), spawn)
     disableProcess(proc)
   })
@@ -84,14 +92,6 @@ window.monitorHub = function () {
   })
 
   panel.hub.subscribe(em.emit.bind(em))
-}
-
-window.clearSpawns = function () {
-  document.getElementById('monitor-spawn').innerHTML = ''
-}
-
-window.clearStdio = function clearStdio () {
-  document.getElementById('monitor-stdio').innerHTML = ''
 }
 
 function enableProcess (proc) {
