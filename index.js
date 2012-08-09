@@ -8,16 +8,18 @@ var figc = require('figc')
 
 server.listen(config.port || 3000)
 
-// if you are running fleet-panel from the 
-// same origin as a fleet-hub then this is not needed
-var sock = shoe(function (stream) {
+shoe(function (stream) {
   dnode.connect({
       port : config.hub.split(':')[1]
     , host : config.hub.split(':')[0]
   }, function (remote, conn) {
-    var d = dnode(remote)
-    d.pipe(stream).pipe(d)
+    var d
+    remote.auth(config.secret || '', function (err, result) {
+      if (err) throw err
+      else {
+        d = dnode(result)
+        d.pipe(stream).pipe(d)
+      }
+    })
   })
-})
-
-sock.install(server, '/dnode')
+}).install(server, '/dnode')
