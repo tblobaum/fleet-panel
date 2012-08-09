@@ -6,9 +6,9 @@
 
 # Run
 
-`fleet-panel --port=<listen> --hub=<fleet hub host>:<fleet hub port>`
+`fleet-panel --port=<port> --hub=<hub-host>:<hub-port> --secret=<password>`
 
-e.g. `fleet-panel --port=3000 --hub=localhost:9000`
+e.g. `fleet-panel --port=3000 --hub=localhost:9000 --secret=beepboop`
 
 `port` defaults to `3000` and `--hub` is required
 
@@ -16,8 +16,9 @@ Note: `process.cwd()` will be checked for a `fleet-panel.json` file which can be
 
 ``` js
 {
-  "port" : "3000",
-  "hub" : "localhost:9000"
+  "port" : 3000,
+  "hub" : "localhost:9000",
+  "secret" : "beepboop"
 }
 ```
 
