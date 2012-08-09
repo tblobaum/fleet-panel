@@ -17,7 +17,9 @@ shoe(function (stream) {
     remote.auth(config.secret || '', function (err, result) {
       if (err) throw err
       else {
+        result.account = config.account
         d = dnode(result)
+        console.log(d, result)
         d.pipe(stream).pipe(d)
       }
     })
