@@ -10,20 +10,10 @@ module.exports = function (opts) {
 
 function Panel (opts) {
   var self = this
-  opts = opts || {}
-  if (!opts.secret) {
-    opts.secret = prompt('Enter the hub password', 'beepboop')
-  }
-  self.secret = opts.secret || ''
   var stream = shoe('/dnode')
   var d = dnode()
   d.on('remote', function (remote) {
-    remote.auth(self.secret, function (err, result) {
-      if (err) self.emit('error', err)
-      else {
-        self.emit('remote', result)
-      }
-    })
+    self.emit('remote', remote)
   })
   d.pipe(stream).pipe(d)
 }
