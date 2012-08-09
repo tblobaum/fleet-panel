@@ -6,9 +6,20 @@
 
 # Run
 
-`fleet-panel <listen> <fleet hub host> <fleet hub port>`
+`fleet-panel --port=<listen> --hub=<fleet hub host>:<fleet hub port>`
 
-e.g. `fleet-panel 3000 localhost 9000`
+e.g. `fleet-panel --port=3000 --hub=localhost:9000`
+
+`port` defaults to `3000` and `--hub` is required
+
+Note: `process.cwd()` will be checked for a `fleet-panel.json` file which can be used to specify the configuration.
+
+``` js
+{
+  "port" : "3000",
+  "hub" : "localhost:9000"
+}
+```
 
 # License
 
