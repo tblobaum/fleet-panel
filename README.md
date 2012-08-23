@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/tblobaum/fleet-panel.png)](http://travis-ci.org/tblobaum/fleet-panel)
 # fleet-panel
 
 # Install
